@@ -1,0 +1,37 @@
+Version control system (vcs)
+
+> Who has made the change
+> Why was the change made
+> When was the change made
+
+> Tracking above params for a source code file is the job of a vcs [This is called tracking change history]
+
+> Several vcs uses relational databases in order to keep track of the changes
+
+> Types of VCS
+>> Centralized VCS
+>>> One server onto which all change information is stored
+>>> Could be an RDBMS or a flat file
+>>> Devs fetch a copy of the required files (not the entire source code) from the server onto local
+>>> Once I am done & tested with the file, I would like to create a restore point which I cannot do on my local machine
+>> I therfore push my changes & the centralized server creates versions
+>> I would therefore need to be connected to this centralized server at all times
+>> The centralized server becomes the SPOF in this system
+>> Since all is on a single server, this could be beneficial for large projects
+
+>> Distributed VCS - Just 2 - Git & Mercurial
+>>> Devs would clone entire repository
+>>> All version control operations would be performed locally
+>>> Every dev would have a local repo & the code to be checked in would be on the remote repo
+>>> This sort of becomes an overhead since the devs would need to back their code up if they are not pushing to remote everyday
+
+=====================================
+> Scenario
+>> User A pushes code to remote
+>> User B clones from remote to local
+>> User B decides to work on a new feature. At this point he creates a new branch
+>> He finishes his feature & pushes his code onto remote
+>> User A would fetch origin & user A would now have his files as well as user Bs
+>> At this point there might be conflicts i.e both users might have updated the same file
+>> The conflict resolved code is then pushed onto remote
+>> This can then be pulled down by anyone with access, maybe user c.

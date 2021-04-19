@@ -1,0 +1,125 @@
+$ git --version
+$ mkdir project
+$ cd project/
+$ git init
+$ touch .gitignore # In here mention the file extension types that you wouldnt want git to track
+$ vi .gitignore # Add filetypes in
+> git status at this point would say nothing to commit
+/project$ cd .git
+/project$ ls -la
+/project$ cd objects
+/project/objects$ ls - la # There would be no objects created || These objects are used by git in order to track changes & updates
+$ cd ..
+$ git add .
+> git status at this point would say .gitignore needs to be commited to local
+/project$ cd .git
+/project$ ls -la
+/project$ cd objects
+/project/objects$ ls - la # There would now be objects
+
+> In home/user .git file you would see the login credentials
+
+$ git commit -m ".gitignore index.html added"
+
+$ cd ~
+$ cs /home/user
+$ cat .gitcongif > This file holds git credentials > Unsure about filename
+
+$ git log
+> An SHA hash would be given # Copy this sha
+
+$ git cat-file <SHA hash> -p
+> Returns a tree type object # This means that version control is done by indexing
+
+$ git cat-file <tree SHA hash> -p
+> Returns blob type object # Blobs are large data containers
+
+$ git cat-file <blob SHA hash> -p
+> The contents of the file would be pretty printed here
+
+$ cp index1.html index.html
+
+$ git commit -m "Copy of index file made"
+
+> At this point if I $ git cat-file commit SHA, I will see a tree object & a parent object for this commit
+> The parent object will be the same as previous commit
+> This clearly maintains all commits in a tree-like fashion
+
+02:13:00 > Git head > 5 minutes rewind
+> Refs > master
+
+vijay@lab6vm1:~/project$ ls -la
+total 20
+drwxrwxr-x  3 vijay vijay 4096 Apr 19 06:08 .
+drwxr-xr-x 20 vijay vijay 4096 Apr 19 05:57 ..
+drwxrwxr-x  7 vijay vijay 4096 Apr 19 06:22 .git
+-rw-rw-r--  1 vijay vijay   18 Apr 19 06:04 .gitignore
+-rw-rw-r--  1 vijay vijay   25 Apr 19 06:08 index.html
+vijay@lab6vm1:~/project$ cd .git/
+vijay@lab6vm1:~/project/.git$ ls -la
+total 44
+drwxrwxr-x 7 vijay vijay 4096 Apr 19 06:22 .
+drwxrwxr-x 3 vijay vijay 4096 Apr 19 06:08 ..
+-rw-rw-r-- 1 vijay vijay   23 Apr 19 05:57 HEAD
+drwxrwxr-x 2 vijay vijay 4096 Apr 19 05:57 branches
+-rw-rw-r-- 1 vijay vijay   92 Apr 19 05:57 config
+-rw-rw-r-- 1 vijay vijay   73 Apr 19 05:57 description
+drwxrwxr-x 2 vijay vijay 4096 Apr 19 05:57 hooks
+-rw-rw-r-- 1 vijay vijay  225 Apr 19 06:22 index
+drwxrwxr-x 2 vijay vijay 4096 Apr 19 05:57 info
+drwxrwxr-x 7 vijay vijay 4096 Apr 19 06:22 objects
+drwxrwxr-x 4 vijay vijay 4096 Apr 19 05:57 refs
+vijay@lab6vm1:~/project/.git$ cd HE
+bash: cd: HE: No such file or directory
+vijay@lab6vm1:~/project/.git$ cat HEAD
+ref: refs/heads/master
+
+=============================Branching & Merging=====================================
+
+cmdlets =
+git log --graph
+git log --decorate
+
+
+> Branch from master for any new feature
+> Branching happens from parent to child
+> Merge happens from feature branch to master
+> Merge happens from child branch to parent
+
+> When master undergoes a change, all other branches would need to be rebased
+> Rebasing is merging nut from parent to child; from master to feature branch
+
+|| When a merge happens from a child branch to a parent branch, all other child branches would need to be rebased ||
+
+> Checkout new branch dev
+> Create a new file > Now dev is ahead of master
+> checkout master
+$ git merge dev
+>> This is a fast-forward merge > This moves the head pointer over to the dev branch
+>> This just moves the HEAD pointer from master to dev branch
+> Three way merge/recursive merge
+>> Lets say while dev was latest, master also gets updated parallely
+>> Now we have two branches (master & dev) both at different levels
+>> At this point,we can either rebase dev child or we can proceed & once we are done with dev, we can recursive merge master and dev
+
+> When we run a git log, it gives a head pointer pointing to a branch > This would be the latest
+
+=====================git diff============
+
+$ git diff <commit hash of commit to be compromised> # to compare latest branch with a particular commit
+
+$ git diff <commit hash of commit 1> <commit has of commit2>
+
++++ represents added lines
+--- represents removed lines
+
+===========source tree application from Atlassian===============
+
+>
+
+
+
+
+
+
+
