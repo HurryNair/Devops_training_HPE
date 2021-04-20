@@ -115,7 +115,120 @@ $ git diff <commit hash of commit 1> <commit has of commit2>
 
 ===========source tree application from Atlassian===============
 
->
+> git remote lists all remote repos
+> git remote add <alias name of the remote> <https key>
+>> I can now do git push <alias name> <local branch to be pushed>
+> By SSH
+>> On Ubuntu cd .ssh/
+>> ssh-keygen
+>> Copy kep & paste it in setting>deploy keys of your repo
+>> Allow write access
+>> git remote add <alias name> <ssh key from repo home page>
+
+> When a repo is cloned with git clone, the branch marked default would be the one cloned unless we use the -b switch
+
+=======================Lets say we are go live ready, but want to continue working on a branch===========
+
+> This is when you would git tag a commit
+> No objects will be created for a tag
+> This would label a certain commit
+$ git label -a (a for annotate) UAT-tested-v1.1 -m "This is a UAT tested version"
+
+==================Consider a situation where I have changes on a file that is not ready for commit yet=======
+
+> git checkout master
+> git checkout -b hotfix
+> git checkout feature1 # branch with unfinished changes
+> git stash
+> In .git/refs there would now be a stash file
+> If I cat stash & git cat-file the stash hash, I can see the latest stashed changes as stash[0]
+> git stash stashes the YetToCommit changes that we see in git status
+> Git stashes changes in an array
+> Git stash apply retrieves the changes
+
+>> Git status - has changes
+>> Git stash -- git status has no changes
+>> git apply - has changes again
+
+> Lets say I again need to jump on another hotfix, I would then stash changes in feature again
+> This time latest changes are in stash[0] & previous changes are in stash[1] ==> stash is an array
+
+====MOM====
+> Tags vs releases
+> Collaborators, contributors, branch owners & PRs
+> Internal CI/CD using Github Actions - surface level discussion
+> Webhooks - Lets you create & send triggers to third party software
+>> For instance we can trigger a webhook to Jenkins for every PR
+>> Secret field is a token
+
+>> Github Actions
+> You would need to add a runner ( webhosted or self hosted)
+> Actual CI process runs on the runner
+> We then add that to the github repo in CI under repo settings
+> Environment - Lets you set environment variables for the runner
+> Github Pages
+
+> Github security
+>> Code vulnerability analysis
+>> Dependancy vulnerability analysis
+
+>> Github Wiki
+>> Github Projects - Kanban
+
+> Github community guidelines
+>> All community guidelines go here
+
+
+https://git-school.github.io/visualizing-git/
+git commit
+git commit
+git branch dev
+git commit
+git commit
+git branch feature1
+git branch feature2
+git checkout feature1
+git commit
+git checkout feature2
+git commit
+git commit
+git checkout feature1
+git commit
+git checkout feature2
+git commit
+git checkout dev
+git merge feature1
+git checkout master
+git merge dev
+git checkout feature2
+git rebase master # rebase does not create a new commit hash
+git branch feature3
+git commit
+git commit
+git commit
+git branch -d feature1
+git checkout dev
+git merge feature2
+git checkout master
+git merge dev
+
+
+>>>>Github gists
+> Additional feature for your repo
+> Its a simple way to share/make public a code snippet
+> Post DOs & DONTs while accessing/working with the repo
+> An installation file that you would like users to see
+> Essentially, a place to store your unique offerings in
+> Deleting a repo does not delete the gist
+
+>>>Github organization
+> Its an entity in which you would have users, repos & projects
+
+Github is a source code repo & not a binary repo
+
+===============In comes gitlab===================== 06:58:10
+
+git clone <https clone link>
 
 
 

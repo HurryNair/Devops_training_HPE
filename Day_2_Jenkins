@@ -1,0 +1,47 @@
+Configuration management tool examples - Chef or Puppet
+Classic Jenkins runs on your machine
+This however adds dependencies on cloud centric environments
+
+JenkinsX is could centric & works well with Kubernetes and other several solutions
+
+Jenkins is an open source tool - You can pick this up & customize it
+
+05:20 recording time
+======Jenkins installation - https://pkg.jenkins.io/debian-stable/ [Ubuntu]
+======Jenkins docs : https://www.jenkins.io/doc/
+
+Jobs vs Build : Jobs are work items we run; Its like an algorithm that defines the steps to be taken
+When the job is run, all these steps run one after the other
+This execution of the job is going to be a build. It would have a build number associated with it
+
+
+There are several ways in which Jenkins can be used. It can be used as a run-time CI/CD server. Once the runtime completes, it can
+be released until another pipeline request is made. Sort of like how gitlab uses docker for its pipelines.
+
+My views tab - shows you the status of your jobs
+Credentials - Lets you store usernames & passwords as a hashmap
+>> Instance, a job requires you connect to your git repo
+>> You would store that here
+>> These credentials would have their scope set to the user you are currently logged in as
+
+=====Dashboard items
+> New items == create a new job
+> People - manage access levels of existing user
+> Builds - Shows all builds on the Jenkins server # Builds on profile are user specific
+> Mange Jenkins - Parked
+> My views == My views in user profile
+> Lockable resources - Lets you lock hw/virtual resource/user/ports/files
+>> Like a port that a job needs to use 24/7
+> Build queue - List of jobs waiting in the queue to be executed
+>> We generally limit job executors since every job executor would consume resources
+>> Based on the limit we've set, builds would tend to queue up
+
+===Manage Jenkins
+> Mange users - Here we can add users
+> Manage plugins - Add or remove plugins
+> All dependant plugins will have a grayed out uninstall button
+
+
+
+
+

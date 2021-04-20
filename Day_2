@@ -1,0 +1,119 @@
+A walk through literally everything on the gitlab web UI
+DevOps
+DevSecOps
+DevChatOps
+
+Tagging & Releasing
+root@lab6vm1:/home/vijay/project# git tag v0.2
+root@lab6vm1:/home/vijay/project# git tag
+v0.1
+v0.2
+root@lab6vm1:/home/vijay/project# git push --tag
+
+To https://gitlab.com/hash6490/test-project.git
+ * [new tag]         v0.2 -> v0.2
+
+Releasing by attaching a tag
+> Create new release & select the tag
+
+> SSH key creation
+
+> Fetch - Fetches it all  vs pull - updated status of files on remote to local || Does not update tags & new branches in local
+> Fetch fetches the refs, refs are specific to the entire repo
+> Pull on the other hand is branch specific
+
+> Squash commits when merge request is accepted
+
+================CI/CD====================
+
+> In order to enable automated build & automated deployment
+> If I have a yaml file in my repo, CI/CD will automatically be enabled
+> Pipelines are end to end automations for continuous integration & delivery
+> Pipeline is a range of tasks that needs to be performed one after the other that is driven by a script
+> How do we create this yaml file ?
+
+
+============Pipeline yaml file deepdive
+> Default field
+>> Image - OS image with which the container must be created for the pipeline
+>> Once task is completed, the provisioned env is deleted
+
+> build/test-job
+>> Stage field : build stage or test stage
+>>> Script : cmdlet to be run
+# Every job will have a stage & script
+
+If we have multiple test jobs, the test jobs will
+
+> deploy-prod job
+>> stage : deploy
+>> script :
+>>> echo "This job deploys the build"
+
+All of this would be stored in .gitlab-ci.yml file & this would be a idden file
+
+==============My first pipeline=============
+
+
+default:
+        image : maven:latest
+
+build job:
+        stage: build
+        script:
+                - mvn package -Dskiptests
+
+test-job1:
+        stage: test
+        script:
+                - mvn test
+
+deploy-prod:
+        stage: deploy
+        script:
+                mvn install
+
+job:
+  script:
+    # provide a shell script as argument for this keyword.
+    - echo "Hello World"
+==============
+
+> Build job is Java native (Maven is Java native)
+> So in the build stage, it would look for a java build file, also called POM
+> POM.xml file had to be added manually
+==============
+
+Git Squash
+
+git rebase -i HEAD~3 # Plan is to squash last 3 commit
+In the new interactive window, preceed commit to keep with p & ones to squash with s
+Save file
+See changes in git log
+
+* commit e6488e66a224458a593aaf27668e00fb00dacce4 (HEAD -> master)
+| Author: Harishankar .s <hash6490@gmail.com>
+| Date:   Tue Apr 20 10:00:10 2021 +0000
+|
+|     Update pom.xml
+|
+|     squash test
+|
+|     squashtest2
+|
+
+Three latest file commits squashed together
+
+> If we dont want the latest ones to be squashed
+
+git log --tree ==> HEAD commit is HEAD1
+git rebase HEAD~5 HEAD~7 ==> Squashes previous 5th, 6th & 7th commit
+
+================================================
+==============================REPOS
+https://github.com/ganeshhp/gitlab-test-repo
+
+================================================
+==============================LINKS
+https://git-school.github.io/visualizing-git/
+https://git-scm.com/docs - GIT READ THE DOCS
