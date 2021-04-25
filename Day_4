@@ -1,0 +1,16 @@
+Installing Jenkins plugins without internet access
+> One way to do this is by donwloading the .hpi plugin file form the jenkins plugin registry
+> Browse this on the airgapped machine & install it
+> Blue Ocean
+> Blue Ocean lets you connect to your repo in a jiffy. It would look for
+
+
+=========Jenkins integration with Jira (02:27)
+> Create project on Jira
+> Create a component
+> These components monitor features
+
+=========Ansible integration with Jenkins
+> Ansible lets you deploy on multiple machines
+> Ansible is mostly used for deployment
+> We can integrate this with Jenkins

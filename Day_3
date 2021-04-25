@@ -1,0 +1,88 @@
+Home directory of Jenkins - /var/lib/jenkins
+
+Directories within /var/lib/jenkins
+
+/jobs - All the scheduled jobs can be found here
+/nodes - Node. A machine which is part of the Jenkins environment and capable of executing Pipelines or Projects.
+These machines can be restored from here using the xml files
+/plugins - All plugin details are stored here
+/secrets - All base level hudson files can be found here. Jenkins is a derivation of Hudson
+/updates - All updates can be found here
+/users - All user data stores here. Access resets can be performed from here
+/workflow-libs - Every job that is executed gets executed in a workspace; These workspace details are found here
+
+Dashboard > Jenkins configuration
+- In the project configuration field, we can give all global configurations required for all jobs
+- Job specific configuration can be specified in the job config
+- We can set the number of executors here
+- We can label jobs here; This way I can configure the Jenkins server to only accept jobs with certain labels
+  On the other hand, I can also set to use the particular Jenkins server as much as possible
+- Quiet period - In seconds, we can set the server to wait x seconds before the first task is executed.
+  This is in scenarios such as where we accidentally trigger a build, but can be killed during sleep time
+- SCM checkout retry count - If the repo does not respond in x tries, only then fail the job; This is the global setting for this
+
+Global tools config
+
+> wget https://apache.mirror.digionline.de/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
+> tar -xvf apache-maven-3.8.1-bin.tar.gz
+> sudo mv apache-maven-3.8.1 /opt/maven # move maven to opt
+> ln -s /opt/maven/bin/mvn /usr/bin/mvn # this is a simlink to easy call maven with mvn
+
+> Configure global security
+> If project based matrix strategy is used, ensure to create admin user with full access
+
+> ====================New Item===============
+> Added github repo
+> Build triggers
+>> trigger builds remotely ; create an auth token & do http://localhost:8080/project/Build0421/build?token= "auth token"
+>> Poll SCM & build periodically lets you schedule builds # Cron syntax # H/15 * * * * # runs every 15 mins # Poll SCM will poll repo every 15 minutes
+>> Build after other projects are built || Run job (AND / OR condition) Build completion status of a different job
+
+>> Delete workspace before build starts - Cleanup happens before a new build runs || Bins and source code from last build get deleted
+>> Abort the build if its stuck
+>> Deployment deploys onto the remote targeted binary repo
+
+>> Build phase
+>> Add build step
+>> All the options in this dropdown menu are related to the plugins added/present
+
+=============Build log analysis=========
+
+> Started by user/SCM
+> Running on which node/Jenkins server
+> Building in x workspace
+
+========In the build environment we can add the jfrog artifactory URL & credential
+> Go to jfrog > Set me up > Get deploy curl command
+> Come back to Jenkins > Add a build step > Execute shell & add that command
+> So basically at build stage, your code gets built, stored as a target file type & then gets pushed to the artifactory
+
+jfrog deploy command example
+curl -uuser1:AP9K5dA8z8tK69uEtYQzZ1jPeXA -T <PATH_TO_folder> "http://35.222.18.158:8081/artifactory/repo1/<filename>"
+ex : curl -uuser1:AP9K5dA8z8tK69uEtYQzZ1jPeXA -T target "http://35.222.18.158:8081/artifactory/repo1/Hello-World-WebApp.jar"
+
+> Make changes to source file
+> After polling time, youll see a build initiated by SCM.
+
+===Tomcat
+
+chown -R vijay /opt
+chgrp -R vijay /opt
+
+cp target/*.jar /opt/tomcat/webserver
+sh /opt/tomcat/bin/startup.sh
+
+======Adding a new node on Jenkins 06:00 approx
+
+======Create a pipeline item
+General settings mostly stay the same
+Pipeline tab
+> Groovy syntax is what is used to script the pipeline
+
+
+
+
+
+
+
+

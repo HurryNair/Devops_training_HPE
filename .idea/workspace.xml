@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ba7fc74-3fdb-4a53-a32e-b79ff6430f35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Day_2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Day_2_Jenkins" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day_3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Day_4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inventory.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playbook-copyfile.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playbook-pingtest.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Day_1_Introduction" beforeDir="false" afterPath="$PROJECT_DIR$/Day_1_Introduction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Git fundamentals" beforeDir="false" afterPath="$PROJECT_DIR$/Git fundamentals" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Day_2" beforeDir="false" afterPath="$PROJECT_DIR$/Day_2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +43,22 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="376" y="148" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618919172707">
+    <state x="376" y="148" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619068798279">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="376" y="148" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.689/1920.0.1280.689@0.0.1280.689" timestamp="1618919172707" />
+    <state x="376" y="148" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.689/1920.0.1280.689@0.0.1280.689" timestamp="1618982354349" />
+    <state x="376" y="148" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.689@0.0.1280.689" timestamp="1619068798279" />
+    <state x="421" y="100" key="FileChooserDialogImpl" timestamp="1619010924022">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="421" y="100" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1619010924022" />
+    <state x="337" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1619164965078">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="337" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.689/1920.0.1280.689@0.0.1280.689" timestamp="1619164965078" />
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1619001043839">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689/1920.0.1280.689@0.0.1280.689" timestamp="1619001043839" />
   </component>
 </project>
